@@ -80,6 +80,25 @@ var_dump($controllers);
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
+		          <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              <span class="label label-danger">1</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">Alerte</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-exclamation-triangle" aria-hidden="true"> Attention intrusion</i>
+
+                    </a>
+                </ul>
+              </li>
+            </ul>
+          </li>
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -140,67 +159,21 @@ var_dump($controllers);
     <!-- Main content -->
     <section class="content">
            <div class="row">
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-aqua">
-            <div class="inner">
-              <h3><?php echo $_SESSION['nbrobject']?></h3>
-
-              <p>Web service</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-search"></i>
-            </div>
-            <a href="listwebserv.php" class="small-box-footer">Plus d'infos <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-green">
-            <div class="inner">
-              <h3>Ajouter<sup style="font-size: 20px"></sup></h3>
-
-              <p>Un nouveau web service</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-plus-circled"></i>
-            </div>
-            <a href="ajwebserv.php" class="small-box-footer">Plus d'infos <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-yellow">
-            <div class="inner">
-              <h3>Editer le profil</h3>
-
-              <p>Modifier votre profil personnel  </p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-person-add"></i>
-            </div>
-            <a href="modifprofile.php" class="small-box-footer">Plus d'infos <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
+		  <div class="col-lg-12 col-xs-12">
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>Supprimer</h3>
+              <h3>Infos général</h3>
 
-              <p>Un web service </p>
+              <p>Liste info  </p>
             </div>
             <div class="icon">
-              <i class="ion ion-trash-a"></i>
+             <i class="fa fa-info" aria-hidden="true"></i>
             </div>
-            <a href="delwebserv.php" class="small-box-footer">plus d'infos <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <!-- ./col -->
-      </div>
+        </div>
+     </div>
     </section>
     <!-- /.content -->
   </div>
