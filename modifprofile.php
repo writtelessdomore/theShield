@@ -63,9 +63,9 @@ if($connect = 1)
     <!-- Logo -->
     <a href="index.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>W</b>WS</span>
+      <span class="logo-mini"><b>T</b>TS</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Webservice</b>WS</span>
+      <span class="logo-lg"><b>TheShield</b>TS</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -117,33 +117,10 @@ if($connect = 1)
             </span>
           </a>
         </li>
-        <li class="treeview">
-          <a href="ajwebserv.php">
-            <i class="fa fa-edit"></i>
-            <span>Creation Webservice	</span>
-          </a>
-        </li>
-		<li class=" treeview">
-          <a href="listwebserv.php">
-            <i class="fa fa-list"></i>
-            <span>Liste	</span>
-			<span class="pull-right-container">
-              <span class="label label-primary pull-right">
-			  <?php echo $_SESSION['nbrobject']?>
-			  </span>
-            </span>
-          </a>
-        </li>
-		<li class="treeview">
-          <a href="delwebserv.php">
-            <i class="fa fa-trash-o"></i>
-            <span>Suppression	</span>
-          </a>
-        </li>
 	    <li class="active treeview">
           <a href="modifprofile.php">
             <i class="fa fa-user"></i>
-            <span>profile	</span>
+            <span>profile</span>
           </a>
         </li>
       </ul>
