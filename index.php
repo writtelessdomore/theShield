@@ -1,4 +1,6 @@
-<?php 
+<?php
+use app\ShieldAPI;
+
 if(isset($_SESSION['login']))
 {
 	$connect = 1;
@@ -10,6 +12,12 @@ if($connect = 1)
 {
 	header('Location: connexion.html');    
 }
+
+
+$shieldAPI = new ShieldAPI();
+
+$controllers = $shieldAPI->getControllers(1);
+
 ?>
 <!DOCTYPE html>
 <html>

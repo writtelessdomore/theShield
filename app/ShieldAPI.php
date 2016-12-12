@@ -9,6 +9,10 @@ class ShieldAPI
 {
     const URL = "http://shield.fr/";
 
+    const METHOD_GET = 'GET';
+    const METHOD_POST = 'POST';
+    const METHOD_PUT = 'PUT';
+
     /**
      */
     public function __construct()
@@ -16,35 +20,43 @@ class ShieldAPI
     }
 
     /**
-     * @param $url
+     * @param       $method
+     * @param       $url
+     * @param array $params
      *
-     * @return string
+     * @return mixed
      */
-    public function getHttpRequest($url){
-        return file_get_contents($url);
-    }
-
-    /**
-     *
-     */
-    public function postHttpRequest(){
+    public function httpRequest($method, $url, $params = [])
+    {
         $postdata = http_build_query(
-            array(
-                'var1' => 'du contenu',
-                'var2' => 'doh'
-            )
+            $params
         );
 
-        $opts = array('http' =>
-                          array(
-                              'method'  => 'POST',
-                              'header'  => 'Content-type: application/x-www-form-urlencoded',
-                              'content' => $postdata
-                          )
-        );
+        $opts = [
+            'http' =>
+                [
+                    'method'  => $method,
+                    'header'  => 'Content-type: application/x-www-form-urlencoded',
+                    'content' => $postdata,
+                ],
+        ];
 
         $context = stream_context_create($opts);
 
-        $result = file_get_contents('http://example.com/submit.php', false, $context);
+        return json_decode(file_get_contents($this::URL.$url, false, $context));
+    }
+
+    /**
+     * /shield/{id_client}/controllers
+     *
+     * @param $idClient
+     *
+     * @return mixed
+     */
+    public function getControllers($idClient)
+    {
+        $url = 'shield/'.$idClient.'/controllers';
+
+        return $this->httpRequest($this::METHOD_GET, $url);
     }
 }
