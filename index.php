@@ -1,5 +1,6 @@
 <?php
-use app\ShieldAPI;
+require 'App\ShieldAPI.php';
+use App\ShieldAPI;
 
 if(isset($_SESSION['login']))
 {
@@ -18,6 +19,7 @@ $shieldAPI = new ShieldAPI();
 
 $controllers = $shieldAPI->getControllers(1);
 
+var_dump($controllers);
 ?>
 <!DOCTYPE html>
 <html>
