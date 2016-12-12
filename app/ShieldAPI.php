@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace app;
 
 /**
  * @author Alexandre PAVY <alexandre2@widop.com>

@@ -1,19 +1,19 @@
 <?php
-require 'App\ShieldAPI.php';
-use App\ShieldAPI;
 
-if(isset($_SESSION['login']))
-{
-	$connect = 1;
-}
-if($connect = 1)
-{
-  session_start();
-}else
-{
-	header('Location: connexion.html');    
-}
+require 'app\ShieldAPI.php';
 
+use app\ShieldAPI;
+
+
+
+if (isset($_SESSION['login'])) {
+    $connect = 1;
+}
+if ($connect = 1) {
+    session_start();
+} else {
+    header('Location: connexion.html');
+}
 
 $shieldAPI = new ShieldAPI();
 
