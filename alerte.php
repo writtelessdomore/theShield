@@ -39,13 +39,10 @@ $controllers = $shieldAPI->getControllers(1);
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
-  
-    <link rel="stylesheet" href="css/reinitialise.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="plugins/iCheck/flat/blue.css">
   
-  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-
+  <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
   <!-- Morris chart -->
   <link rel="stylesheet" href="plugins/morris/morris.css">
   <!-- jvectormap -->
@@ -54,15 +51,17 @@ $controllers = $shieldAPI->getControllers(1);
   <link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
   <!-- Daterange picker -->
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+  
+  <link rel="stylesheet" href="css/reinitialise.css">
+	  
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   
   <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
   
+  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
   
-<!-- jQuery 2.2.3 -->
-<script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
   
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -91,26 +90,6 @@ $controllers = $shieldAPI->getControllers(1);
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-		          <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-danger">1</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">Alerte</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li>
-                    <a href="alerte.php">
-                      <i class="fa fa-exclamation-triangle" aria-hidden="true"> Attention intrusion</i>
-
-                    </a>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
@@ -168,126 +147,39 @@ $controllers = $shieldAPI->getControllers(1);
 
     <!-- Main content -->
     <section class="content">
-		 <div class="row">
-		  <div class="col-lg-5 col-xs-12">
+
+	     <div class="row">
+		  <div class="col-lg-12 col-xs-12">
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
               <h3>Alarme</h3>
 
-              <p>Activer désactiver l'alarme</p>
+              <p>Activer/désactiver/Ecouter </p>
             </div>
             <div class="icon">
-              <i class="fa fa-bell-o" aria-hidden="true"></i>
+             <i class="fa fa-bell-o" aria-hidden="true"></i>
             </div>
           </div>
         </div>
+
         </div> 
-		
 		<div class ="row">
 		<div class="reinitialise">
-		<div class ="col-lg-1 col-xs-12" style="margin-bottom : 10px;">
+		<div class ="col-lg-1 col-xs-12" >
 		<input checked data-toggle="toggle" type="checkbox">
 		</div>
+			<div class ="col-lg-5 col-xs-12">
+							  <p>
+			  <audio controls="controls" preload="none">
+				  <source src="sncf.mp3" type="audio/mp3" />
+				  Votre navigateur n'est pas compatible
+			   </audio>
+			  </p>
+			</div>
 		</div>
 		</div>
 
-         <div class="row">
-		  <div class="col-lg-12 col-xs-12">
-          <!-- small box -->
-          <div class="small-box bg-green">
-            <div class="inner">
-              <h3>Infos général</h3>
-
-              <p>Liste informations</p>
-            </div>
-            <div class="icon">
-             <i class="fa fa-info" aria-hidden="true"></i>
-            </div>
-          </div>
-        </div>
-        </div> 
-	   <div class="clearfix visible-sm-block"></div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="box">
-            <div class="box-header with-border">
-              <h3 class="box-title">Rapport du jour</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <div class="row">
-                <div class="col-md-8">
-                  <p class="text-center">
-                    <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
-                  </p>
-
-                  <div class="chart">
-                    <!-- Sales Chart Canvas -->
-                    <canvas id="tpChart" style="height: 180px!important;"></canvas>
-                  </div>
-                  <!-- /.chart-responsive -->
-                </div>
-                <!-- /.col -->
-                <div class="col-md-4">
-                  <p class="text-center">
-                    <strong>Humidité/température</strong>
-                  </p>
-
-                  <div class="progress-group">
-                    <span class="progress-text">Température interieure</span>
-                    <span class="progress-number"><b>20</b>°</span>
-
-                    <div class="progress sm">
-                      <div class="progress-bar progress-bar-aqua" style="width: 50%"></div>
-                    </div>
-                  </div>
-                  <!-- /.progress-group -->
-                  <div class="progress-group">
-                    <span class="progress-text">Température exterieur</span>
-                    <span class="progress-number"><b>10</b>°</span>
-
-                    <div class="progress sm">
-                      <div class="progress-bar progress-bar-red" style="width: 25%"></div>
-                    </div>
-                  </div>
-                  <!-- /.progress-group -->
-                  <div class="progress-group">
-                    <span class="progress-text">humidité interieur</span>
-                    <span class="progress-number"><b>30</b>%</span>
-
-                    <div class="progress sm">
-                      <div class="progress-bar progress-bar-green" style="width: 65%"></div>
-                    </div>
-                  </div>
-                  <!-- /.progress-group -->
-                  <div class="progress-group">
-                    <span class="progress-text">humidité exterieur</span>
-                    <span class="progress-number"><b>56</b>%</span>
-
-                    <div class="progress sm">
-                      <div class="progress-bar progress-bar-yellow" style="width: 80%"></div>
-                    </div>
-                  </div>
-                  <!-- /.progress-group -->
-                </div>
-                <!-- /.col -->
-              </div>
-              <!-- /.row -->
-            </div>
-            <!-- ./box-body -->
-            <!-- /.box-footer -->
-          </div>
-          <!-- /.box -->
-        </div>
-        <!-- /.col -->
-      </div>		
     </section>
     <!-- /.content -->
   </div>
@@ -497,6 +389,8 @@ $controllers = $shieldAPI->getControllers(1);
 <!-- ./wrapper -->
 
 
+<!-- jQuery 2.2.3 -->
+
 <!-- Bootstrap 3.3.6 -->
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <!-- FastClick -->
@@ -517,5 +411,9 @@ $controllers = $shieldAPI->getControllers(1);
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
 </body>
 </html>
