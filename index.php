@@ -19,7 +19,6 @@ $shieldAPI = new ShieldAPI();
 
 $controllers = $shieldAPI->getControllers(1);
 
-var_dump($controllers);
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,7 +51,9 @@ var_dump($controllers);
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-
+  
+  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+  
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -67,9 +68,9 @@ var_dump($controllers);
     <!-- Logo -->
     <a href="index.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>T</b>TS</span>
+      <span class="logo-mini"><b></b>TS</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>TheShield</b>TS</span>
+      <span class="logo-lg"><b>TheShield</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -105,8 +106,7 @@ var_dump($controllers);
               <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <span class="hidden-xs"> Bienvenue <?php  echo $_SESSION['login'] ?> </span>
             </a>
-            <ul class="dropdown-menu">
-			<span>Voici votre token  d'accee web service : <?php echo $_SESSION['idclients']  ?></span>
+            <ul class="dropdown-menu">	
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
@@ -158,22 +158,145 @@ var_dump($controllers);
 
     <!-- Main content -->
     <section class="content">
-           <div class="row">
+
+	     <div class="row">
 		  <div class="col-lg-12 col-xs-12">
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
+              <h3>Alarme</h3>
+
+              <p>Activer/désactiver  </p>
+            </div>
+            <div class="icon">
+             <i class="fa fa-bell-o" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+		<div class="row">
+	     <div class=" col-lg-offset-1 col-lg-6 col-xs-3">
+          <div class="info-box">
+            <span class="info-box-icon bg-red"><style>
+  .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }
+  .toggle.ios .toggle-handle { border-radius: 20px; }
+</style>
+<input checked data-toggle="toggle" data-style="ios" type="checkbox"></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">écouter</span>
+              <span class="info-box-number"><audio controls>
+
+			 <source src="horse.ogg" type="audio/ogg">
+
+			 <source src="horse.mp3" type="audio/mpeg">
+
+			Your browser does not support the audio element.
+
+			</audio>
+			</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+		</div>
+        </div> 
+           <div class="row">
+		  <div class="col-lg-12 col-xs-12">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
               <h3>Infos général</h3>
 
-              <p>Liste info  </p>
+              <p>Liste informations</p>
             </div>
             <div class="icon">
              <i class="fa fa-info" aria-hidden="true"></i>
             </div>
           </div>
         </div>
+        </div> 
+	   <div class="clearfix visible-sm-block"></div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="box">
+            <div class="box-header with-border">
+              <h3 class="box-title">Rapport du jour</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="row">
+                <div class="col-md-8">
+                  <p class="text-center">
+                    <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
+                  </p>
+
+                  <div class="chart">
+                    <!-- Sales Chart Canvas -->
+                    <canvas id="tpChart" style="height: 180px!important;"></canvas>
+                  </div>
+                  <!-- /.chart-responsive -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-4">
+                  <p class="text-center">
+                    <strong>Humidité/température</strong>
+                  </p>
+
+                  <div class="progress-group">
+                    <span class="progress-text">Température interieure</span>
+                    <span class="progress-number"><b>20</b>°</span>
+
+                    <div class="progress sm">
+                      <div class="progress-bar progress-bar-aqua" style="width: 50%"></div>
+                    </div>
+                  </div>
+                  <!-- /.progress-group -->
+                  <div class="progress-group">
+                    <span class="progress-text">Température exterieur</span>
+                    <span class="progress-number"><b>10</b>°</span>
+
+                    <div class="progress sm">
+                      <div class="progress-bar progress-bar-red" style="width: 25%"></div>
+                    </div>
+                  </div>
+                  <!-- /.progress-group -->
+                  <div class="progress-group">
+                    <span class="progress-text">humidité interieur</span>
+                    <span class="progress-number"><b>30</b>%</span>
+
+                    <div class="progress sm">
+                      <div class="progress-bar progress-bar-green" style="width: 65%"></div>
+                    </div>
+                  </div>
+                  <!-- /.progress-group -->
+                  <div class="progress-group">
+                    <span class="progress-text">humidité exterieur</span>
+                    <span class="progress-number"><b>56</b>%</span>
+
+                    <div class="progress sm">
+                      <div class="progress-bar progress-bar-yellow" style="width: 80%"></div>
+                    </div>
+                  </div>
+                  <!-- /.progress-group -->
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- ./box-body -->
+            <!-- /.box-footer -->
+          </div>
+          <!-- /.box -->
         </div>
-     </div>
+        <!-- /.col -->
+      </div>		
     </section>
     <!-- /.content -->
   </div>
@@ -382,41 +505,31 @@ var_dump($controllers);
 </div>
 <!-- ./wrapper -->
 
+
 <!-- jQuery 2.2.3 -->
 <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.but	ton);
-</script>
 <!-- Bootstrap 3.3.6 -->
 <script src="bootstrap/js/bootstrap.min.js"></script>
-<!-- Morris.js charts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="plugins/morris/morris.min.js"></script>
+<!-- FastClick -->
+<script src="plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/app.min.js"></script>
 <!-- Sparkline -->
 <script src="plugins/sparkline/jquery.sparkline.min.js"></script>
 <!-- jvectormap -->
 <script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
 <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-<!-- jQuery Knob Chart -->
-<script src="plugins/knob/jquery.knob.js"></script>
-<!-- daterangepicker -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-<script src="plugins/daterangepicker/daterangepicker.js"></script>
-<!-- datepicker -->
-<script src="plugins/datepicker/bootstrap-datepicker.js"></script>
-<!-- Bootstrap WYSIHTML5 -->
-<script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-<!-- Slimscroll -->
+<!-- SlimScroll 1.3.0 -->
 <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="plugins/fastclick/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/app.min.js"></script>
+<!-- ChartJS 1.0.1 -->
+<script src="plugins/chartjs/Chart.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard.js"></script>
+<script src="dist/js/pages/dashboard2.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 </body>
